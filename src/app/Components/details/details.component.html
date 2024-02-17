@@ -1,0 +1,30 @@
+<div class="container-fluid bg-light py-5">
+    <div class="row justify-content-center" *ngIf="pokemon">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">{{ pokemon.name }}</h2>
+          </div>
+          <div class="card-body">
+            <div class="text-center mb-4">
+              <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" (click)="watchPokemon()" class="img-fluid rounded w-25" style="cursor: pointer;">
+            </div>
+            <p><strong>ID:</strong> {{ pokemonId }}</p>
+            <p><strong>Height:</strong> {{ pokemon.height / 10 }} m</p>
+            <p><strong>Weight:</strong> {{ pokemon.weight / 10 }} kg</p>
+            <p><strong>Abilities:</strong></p>
+            <ul>
+              <li *ngFor="let ability of pokemon.abilities">{{ ability.ability.name }}</li>
+            </ul>
+            <p><strong>Types:</strong></p>
+            <ul>
+              <li *ngFor="let type of pokemon.types">{{ type.type.name }}</li>
+            </ul>
+  
+            <button class="btn btn-block btn-outline-primary" (click)="goBack()">Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

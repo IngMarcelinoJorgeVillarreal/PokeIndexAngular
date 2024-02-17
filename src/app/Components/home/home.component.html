@@ -1,0 +1,21 @@
+<div class="pokedex-container">
+  <img src="../../../assets/Poké_Ball_icon.svg.png" class="img-fluid rounded mx-auto d-block" width="10%"
+    alt="Pokéball">
+  <h1 class="text-center mb-5" style="color: #e44059;">Pokédex</h1>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Buscar por nombre o ID" [(ngModel)]="searchTerm"
+      (input)="filterPokemons()">
+  </div>
+
+  <div class="row" *ngIf="filteredPokemons">
+    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4" *ngFor="let pokemon of filteredPokemons">
+      <div class="pokemon-card card" (click)="details(pokemon)">
+        <img [src]="pokemon.sprites.front_default" class="pokemon-img card-img-top" [alt]="pokemon.name">
+        <div class="card-body">
+          <h5 class="card-title" style="color: #e44059;">#{{pokemon.id}} {{ pokemon.name }}</h5>
+          <p class="card-text">Height: {{ pokemon.height / 10 }} m | Weight: {{ pokemon.weight / 10 }} kg</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
