@@ -52,7 +52,7 @@ export class DetailsComponent {
     Swal.fire({
       title: this.pokemon.name,
       html: html,
-      iconHtml: `  <img src="../../../assets/egg.png" class="d-block w-100" alt="...">`,
+      iconHtml: `  <img src="assets/egg.png" class="d-block w-100" alt="...">`,
       showCloseButton: true,
       showConfirmButton: true,
       confirmButtonText: 'Felicidades, encontraste el easterEgg'
