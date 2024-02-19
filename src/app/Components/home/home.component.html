@@ -7,7 +7,7 @@
       (input)="filterPokemons()">
   </div>
 
-  <div class="row" *ngIf="filteredPokemons">
+  <div class="row" *ngIf="filteredPokemons && filteredPokemons.length > 150 else loading ">
     <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4" *ngFor="let pokemon of filteredPokemons">
       <div class="pokemon-card card" (click)="details(pokemon)">
         <img [src]="pokemon.sprites.front_default" class="pokemon-img card-img-top" [alt]="pokemon.name">
@@ -18,4 +18,13 @@
       </div>
     </div>
   </div>
+    <ng-template #loading>
+      <div class="d-flex justify-content-center">
+        <div role="status">
+          <img src="assets/Poké_Ball_icon.svg.png" class="img-fluid rounded mx-auto d-block spinner-grow" width="100%"
+          alt="Pokéball">
+        </div>
+        <span class="font-weight-bold">Capturando Pokemones...</span>
+      </div>
+    </ng-template>
 </div>
